@@ -1,0 +1,45 @@
+u1 = User.objects.create_user(username='Vasya')
+u2 = User.objects.create_user(username='pin')
+Author.objects.create(authorUser=u1) 
+Author.objects.create(authorUser=u2)
+
+>>> Category.objects.create(name='fantasi')
+<Category: Category object (1)>
+>>> Category.objects.create(name='adventure') 
+<Category: Category object (2)>
+>>> Category.objects.create(name='comedy')  
+<Category: Category object (3)>
+>>> Category.objects.create(name='scare')   
+<Category: Category object (4)>
+>>> Post.objects.create(author=author, categoryType='NW', title='likelike', text='example')
+<Post: Post object (1)>
+Post.objects.create(author=author, categoryType='AR', title='sometitle', text='sometext')      
+<Post: Post object (4)>
+>>> Post.objects.create(author=author, categoryType='AR', title='sometitle', text='sometext')      
+<Post: Post object (5)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text='blablabla')
+<Comment: Comment object (1)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=1).authorUser, text='blablabla') 
+<Comment: Comment object (2)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=2).authorUser, text='blablabla') 
+<Comment: Comment object (3)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=4), commentUser=Author.objects.get(id=1).authorUser, text='blablabla') 
+<Comment: Comment object (4)>
+>>> Comment.objects.get(id=1).like() 
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=3).like() 
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=2).dislike() 
+>>> a = Author.objects.get(id=1)
+>>> a.update.rating() 
+>>> a = Author.objects.order_by('-ratingAuthor')[1:]
+>>> a
+>>> for i in a:
+...     i.ratingAuthor
+...     i.authorUser.username
+...
+
